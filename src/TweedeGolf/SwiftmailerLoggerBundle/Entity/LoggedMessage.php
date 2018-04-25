@@ -328,12 +328,12 @@ class LoggedMessage
     /**
      * Sets all fields from the passed Swift_Mime_Message instance that will be logged
      *
-     * @param Swift_Mime_Message $message
+     * @param \Swift_Message $message
      */
-    public function setMessageFields(Swift_Mime_Message $message)
+    public function setMessageFields(\Swift_Message $message)
     {
         $date = new DateTime();
-        $this->setDate($date->setTimestamp($message->getDate()));
+        $this->setDate($message->getDate());
         $this->setFrom($message->getFrom());
         $this->setReplyTo($message->getReplyTo());
         $this->setReturnPath($message->getReturnPath());
